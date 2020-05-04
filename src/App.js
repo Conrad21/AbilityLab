@@ -105,8 +105,8 @@ function App() {
               <SubMenu
                 title={
                   <span>
-                    <Icon type="mail" />
-                    <span>A Tab</span>
+                    <Icon type="YuqueOutlined" />
+                    <span>Change Walk Type</span>
                   </span>
                 }
               >
