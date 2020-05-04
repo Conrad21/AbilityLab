@@ -1,6 +1,52 @@
 import React, { Component } from "react";
 import ZingChart from "zingchart-react";
 
+const boardtyoe = 1;
+
+// const Ylines = { values: "0:20:5" };
+// const Xlines = { values: "-1:16:1" };
+
+const Ylines = { values: "0:10:4" };
+const Xlines = { values: "-1:16:2" };
+
+const data = [
+  [0, 6],
+  [2, 3],
+  [4, 6],
+  [6, 2],
+  [8, 5],
+  [12, 6],
+  [14, 3],
+  [16, 6],
+  [18, 2],
+  [20, 6],
+  [22, 2],
+];
+
+//change this to funcation to allow con. on the garph
+const markers = {
+  // use gradients to fill quadrants vertically
+  type: "area",
+  range: [-1, 1],
+  valueRange: true,
+  gradientColors: "red white",
+  gradientStops: ".5 .1",
+
+  alpha: 0.5,
+};
+
+//---------------------------------------
+
+function changeboardtype(props) {
+  if (boardtyoe == 1) {
+    Ylines = { values: "0:10:4" };
+  } else if (boardtyoe == 2) {
+    Ylines = { values: "0:20:5" };
+  }
+}
+
+//handle what type of graph
+
 class Events extends Component {
   constructor(props) {
     super(props);
@@ -19,19 +65,20 @@ class Events extends Component {
           height: 10,
           width: 10,
         },
+        //X
         scaleX: {
           // "zooming":true,
           // "zoom-to":[3,7],
-          values: "-1:16:2",
+          values: Xlines.values,
+
           guide: {
             visible: true,
+            lineStyle: "solid",
+            lineColor: "Black",
+            lineWidth: "2px",
           },
           refValue: 1,
-          refLine: {
-            visible: true,
-            lineWidth: 3,
-            lineColor: "#424242",
-          },
+
           markers: [
             {
               // use gradients to fill quadrants vertically
@@ -116,8 +163,10 @@ class Events extends Component {
           ],
         },
         legend: {},
+        //Y
         scaleY: {
-          values: "0:10:4",
+          //controls the grid   startPoint:Endpoint:NumOfSections
+          values: Ylines.values,
           guide: {
             lineStyle: "solid",
             lineColor: "Black",
@@ -154,19 +203,7 @@ class Events extends Component {
               "border-color": "Black",
               "border-width": 12,
             },
-            values: [
-              [0, 6],
-              [2, 3],
-              [4, 6],
-              [6, 2],
-              [8, 5],
-              [12, 6],
-              [14, 3],
-              [16, 6],
-              [18, 2],
-              [20, 6],
-              [22, 2],
-            ],
+            values: data,
             text: "O: Hit",
             marker: {
               type: "circle",

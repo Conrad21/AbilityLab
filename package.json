@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^3.23.4",
+    "antd": "^3.26.15",
     "bootstrap": "^4.4.1",
-    "react": "^16.9.0",
-    "react-bootstrap": "^1.0.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "3.1.2",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
+    "react-dom": "^16.13.1",
+    "react-resolve": "^1.0.3",
+    "react-scripts": "^3.4.1",
     "zingchart-react": "^2.1.0"
   },
   "scripts": {

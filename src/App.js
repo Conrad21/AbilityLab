@@ -22,8 +22,11 @@ import { Patient, HitsAvg, Detail, OtherData, OtherDetail } from "./Patient";
 
 import PatientDetails from "./PatientDetails";
 import Events from "./Events.jsx";
+import ZingChart2 from "./ZingChart2.jsx";
 var ZingChart = require("zingchart-react").core;
 const { Header, Footer, Sider, Content } = Layout;
+
+const answers = 610;
 
 // const handleGameType {
 //   console.log("Game type ");
@@ -61,6 +64,8 @@ const menu = (
     </Menu.Item>
   </Menu>
 );
+
+var size1 = 605;
 
 function App() {
   const [selectedPatient, setSelectedPatient] = useState("");
@@ -162,7 +167,7 @@ function App() {
                   <Card
                     bordered
                     style={{
-                      width: 605,
+                      width: answers,
                       height: 410,
                       float: "left",
                       margin: 10,

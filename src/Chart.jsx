@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ZingChart from "zingchart-react";
 
+
 class Chart extends Component {
   constructor(props) {
     super(props);
