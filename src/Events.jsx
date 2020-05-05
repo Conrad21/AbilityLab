@@ -3,19 +3,16 @@ import ZingChart from "zingchart-react";
 
 const boardtyoe = 1;
 
-//4X8
-// const Ylines = { values: "0:25:5" };
-// const Xlines = { values: "-1:16:2" };
-
 //7X9
+// const Ylines = { values: "0:20:5" };
+// const Xlines = { values: "-1:16:2" };
+// const data = [];
+// const data2 = [];
+
+//4X8
 const Ylines = { values: "0:10:4" };
 const Xlines = { values: "-1:16:2" };
-
-// handleGrid = () => {
-//   state => ({
-
-// };
-
+const data2 = [[8.5, 2]];
 const data = [
   [0, 6],
   [2, 3],
@@ -94,7 +91,7 @@ class Events extends Component {
               valueRange: true,
               gradientColors: "red white",
               gradientStops: ".5 .1",
-
+              fillType: "linear",
               alpha: 0.5,
             },
             {
@@ -193,7 +190,7 @@ class Events extends Component {
               "border-color": "Black",
               "border-width": 2,
             },
-            values: [[10, 2]],
+            values: data2,
 
             marker: {
               type: "cross",
