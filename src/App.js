@@ -152,12 +152,16 @@ function App() {
               >
                 {/* Patient info */}
                 <Patient name="Name goes here" avatarSrc="./icon.png">
-                  <HitsAvg hitsAvg=" .817">
-                    <Detail hits="1000" misses="183" />
+                  <HitsAvg hitsAvg=" .875">
+                    <Detail hits="7" misses="1" />
                     <br></br>
                   </HitsAvg>
                   <OtherData Otherdata>
-                    <OtherDetail distance=" 100 meters" other="Other data" />
+                    <OtherDetail
+                      Walking
+                      Distance=" 10 meters"
+                      other="Other data"
+                    />
                   </OtherData>
                   <ViewProfileButton name="Name Goes Here" />
                 </Patient>
