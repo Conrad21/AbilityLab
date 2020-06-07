@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "ag-charts-community": "^1.1.0",
+    "ag-charts-react": "^1.1.0",
+    "ag-grid-community": "^23.1.1",
+    "ag-grid-react": "^23.1.1",
     "antd": "^3.26.15",
     "bootstrap": "^4.4.1",
     "react": "^16.13.1",

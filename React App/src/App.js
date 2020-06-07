@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 //import Card from "react-bootstrap/Card";
 import "./App.css";
@@ -15,13 +14,10 @@ import {
 } from "antd";
 import Title from "antd/lib/typography/Title";
 import SubMenu from "antd/lib/menu/SubMenu";
-
 import { Patient, HitsAvg, Detail, OtherData, OtherDetail } from "./Patient";
-
-//import CareerDetails from "./CareerDetails";
-
 import PatientDetails from "./PatientDetails";
 import Events from "./Events.jsx";
+import { AgChartsReact } from "ag-charts-react";
 import ZingChart2 from "./ZingChart2.jsx";
 var ZingChart = require("zingchart-react").core;
 const { Header, Footer, Sider, Content } = Layout;
