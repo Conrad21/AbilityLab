@@ -1,18 +1,16 @@
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
 
-const data = [
-  [0, 6],
+const Greendata = [
+  [1, 6],
+  [3, 6],
+  [5, 6],
+];
+
+const Reddata = [
   [2, 3],
-  [4, 6],
-  [6, 2],
-  [8, 5],
-  [12, 6],
-  [14, 3],
-  [16, 6],
-  [18, 2],
-  [20, 6],
-  [22, 2],
+  [4, 3],
+  [6, 3],
 ];
 
 class Events extends Component {
@@ -20,33 +18,28 @@ class Events extends Component {
     super(props);
 
     this.state = {
-      options: {
-        chart: {
-          id: "scatter",
-          type: "scatter",
-        },
-      },
       series: [
         {
-          name: "series-1",
-          data: data,
+          name: "TEAM 1",
+          data: Greendata,
+          min: 10,
+          max: 60,
+        },
+        {
+          name: "TEAM 2",
+          data: Reddata,
+          min: 10,
+          max: 60,
         },
       ],
-
       options: {
-        markers: {
-          radius: 112,
-          colors: "#FF0032",
-        },
         chart: {
           height: 350,
           type: "scatter",
           zoom: {
-            enabled: true,
             type: "xy",
           },
         },
-
         dataLabels: {
           enabled: false,
         },
@@ -62,12 +55,14 @@ class Events extends Component {
             },
           },
         },
-        // xaxis: {
-        //   type: "datetime",
-        // },
+        fill: {
+          colors: " #FF0032 ,#FF0032 ",
+        },
+        xaxis: {
+          type: "datetime",
+        },
         yaxis: {
-          max: 10,
-          min: 0,
+          max: 12,
         },
       },
     };
