@@ -1,9 +1,20 @@
 import React from "react";
 import Plot from "react-plotly.js";
 
-data1 = {
+var trace1 = {
   x: [1, 2, 3, 4],
   y: [10, 15, 13, 17],
+  mode: "markers",
+  type: "scatter",
+  marker: {
+    color: "rgba(204, 204, 204, 0.95)",
+    line: {
+      color: "rgba(217, 217, 217, 1.0)",
+      width: 1,
+    },
+    symbol: "square",
+    size: 50,
+  },
 };
 
 var trace2 = {
@@ -20,27 +31,22 @@ var trace3 = {
   type: "scatter",
 };
 
-var data = [trace1, trace2, trace3];
-
 export default class PlotLyGraphic extends React.Component {
   state = {
-    trace1: {
-      x: data1.x,
-      y: data1.y,
-      mode: "markers",
-      type: "scatter",
-    },
-    trace2: {
-      x: [2, 3, 4, 5],
-      y: [16, 5, 11, 9],
-      mode: "lines",
-      type: "scatter",
-    },
-
+    trace1,
+    trace2,
     layout: {
       datarevision: 0,
       width: 580,
       height: 355,
+      xaxis: {
+        range: [0, 10],
+        autorange: false,
+      },
+      yaxis: {
+        range: [0, 10],
+        autorange: false,
+      },
     },
     revision: 0,
   };
