@@ -197,6 +197,9 @@ function App() {
                   <div>
                     <input type="radio" name="difficulty" value="medium " /> -
                     Medium
+                    <Button type="dashed" size={12}>
+                      Dashed
+                    </Button>
                   </div>
                   <div>
                     <input type="radio" name="difficulty" value="hard " /> -
