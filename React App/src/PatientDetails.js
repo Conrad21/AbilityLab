@@ -14,11 +14,11 @@ const PatientDetails = ({ patient, visible, onClose }) => {
       destroyOnClose
       title={patient}
       visible={visible}
-      width={640}
+      width={350}
       onClose={onClose}
     >
       <Skeleton active loading={isLoading} paragraph={{ rows: 4 }}>
-        <div style={{ padding: 10 }}>
+        <div style={{ padding: 7, size: 22 }}>
           <p>Name - {name}</p>
           <p>Age - {age}</p>
           <p>Address - {address}</p>

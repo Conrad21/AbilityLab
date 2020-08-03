@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+//import logo from "./AbilityLabLogo.jpeg";
 import "bootstrap/dist/css/bootstrap.min.css";
 //import Card from "react-bootstrap/Card";
 import "./App.css";
@@ -22,7 +22,8 @@ import { Patient, HitsAvg, Detail, OtherData, OtherDetail } from "./Patient";
 
 import PatientDetails from "./PatientDetails";
 import Events from "./Events.jsx";
-import ZingChart2 from "./ZingChart2.jsx";
+import logo from "./AbilityLabLogo.jpeg";
+
 var ZingChart = require("zingchart-react").core;
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -94,7 +95,7 @@ function App() {
       <Layout>
         <Header style={{ padding: 10 }}>
           {/*<Avatar style={{ float: "right" }} src="./dp.png" /> */}
-          <Title style={{ color: "white" }} level={3}>
+          <Title style={{ color: "orange" }} level={3}>
             Ability Lab
           </Title>
         </Header>
@@ -141,47 +142,40 @@ function App() {
               <Breadcrumb style={{ margin: "20px 0", opacity: 0.1 }}>
                 {/*  <Breadcrumb.Item>Dashboard</Breadcrumb.Item>*/}
               </Breadcrumb>
-
               <div
                 style={{
-                  background: "	#497586",
-                  padding: 34,
-                  minHeight: 630,
+                  background: "	#d87a0f",
+                  float: "center",
+                  padding: 40,
+                  minHeight: 710,
                   width: 1050,
                 }}
               >
                 {/* Patient info */}
                 <Patient name="Name goes here" avatarSrc="./icon.png">
-                  <HitsAvg hitsAvg=" .875">
-                    <Detail hits="7" misses="1" />
+                  <HitsAvg hitsAvg=" .333">
+                    <Detail hits="2" misses="4" />
                     <br></br>
                   </HitsAvg>
                   <OtherData Otherdata>
                     <OtherDetail
                       Walking
-                      Distance=" 10 meters"
+                      Distance=" 3 meters"
                       other="Other data"
                     />
                   </OtherData>
                   <ViewProfileButton name="Name Goes Here" />
                 </Patient>
-
-                {/* DashBoard Image */}
                 <div>
                   <Card
                     bordered
                     style={{
                       width: answers,
-                      height: 410,
+                      height: 440,
                       float: "left",
                       margin: 10,
                     }}
                   >
-                    <backgroundImage
-                      src={"./sidewalk.png"}
-                      width={500}
-                      height={200}
-                    />
                     <Events />
                   </Card>
                 </div>
@@ -189,17 +183,17 @@ function App() {
                 <div></div>
                 <Card
                   bordered
-                  style={{ width: 300, height: 150, float: "left", margin: 7 }}
+                  style={{ width: 300, height: 160, float: "left", margin: 10 }}
                   title="Difficulty"
                   bordered={true}
                 >
-                  <input type="radio" name="difficulty" value="easy " /> - Easy
+                  <input type="radio" name="difficulty" value="easy" /> - Easy
                   <div>
                     <input type="radio" name="difficulty" value="medium " /> -
                     Medium
-                    <Button type="dashed" size={12}>
-                      Dashed
-                    </Button>
+                    {/* <Button type="dashed" size={12}>
+                      Test Button
+                    </Button> */}
                   </div>
                   <div>
                     <input type="radio" name="difficulty" value="hard " /> -
@@ -207,19 +201,21 @@ function App() {
                   </div>
                 </Card>
 
-                {/* <Card
-                  bordered
-                  style={{ width: 300, height: 150, float: "left", margin: 7 }}
-                  title="Passed Sessions"
-                  bordered={true}
-                >
-                  <Dropdown overlay={menu}>
-                    <a className="ant-dropdown-link" href="#">
-                      Select Session <Icon type="down" />
-                    </a>
-                  </Dropdown>
-                </Card> */}
-              </div>
+                <img
+                  src={logo}
+                  style={{
+                    width: 610,
+                    height: 160,
+                    float: "left",
+                    position: "absolute",
+                    right: 110,
+                    left: 660,
+                    bottom: 1,
+                    top: 582,
+                    margin: 12,
+                  }}
+                />
+              </div>{" "}
             </Content>
             <PatientDetails
               patient={selectedPatient}
