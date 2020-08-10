@@ -138,17 +138,17 @@ function App() {
             </Menu>
           </Sider>
           <Layout>
-            <Content style={{ padding: "0 100px" }}>
-              <Breadcrumb style={{ margin: "20px 0", opacity: 0.1 }}>
+            <Content style={{ padding: "0 10px" }}>
+              <Breadcrumb style={{ margin: "10px 0", opacity: 0.1 }}>
                 {/*  <Breadcrumb.Item>Dashboard</Breadcrumb.Item>*/}
               </Breadcrumb>
               <div
                 style={{
                   background: "	#d87a0f",
                   float: "center",
-                  padding: 40,
+                  padding: 10,
                   minHeight: 710,
-                  width: 1050,
+                  width: 1165,
                 }}
               >
                 {/* Patient info */}
@@ -171,7 +171,7 @@ function App() {
                     bordered
                     style={{
                       width: answers,
-                      height: 440,
+                      height: 480,
                       float: "left",
                       margin: 10,
                     }}
@@ -183,7 +183,7 @@ function App() {
                 <div></div>
                 <Card
                   bordered
-                  style={{ width: 300, height: 160, float: "left", margin: 10 }}
+                  style={{ width: 330, height: 160, float: "left", margin: 10 }}
                   title="Difficulty"
                   bordered={true}
                 >
@@ -206,10 +206,10 @@ function App() {
                   style={{
                     width: 610,
                     height: 160,
-                    float: "left",
+                    //  float: "left",
                     position: "absolute",
-                    right: 110,
-                    left: 660,
+                    right: 100,
+                    left: 572,
                     bottom: 1,
                     top: 582,
                     margin: 12,

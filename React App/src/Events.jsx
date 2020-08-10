@@ -9,6 +9,7 @@ var Red = {
   y: [15, 15, 15, 27, 27, 27],
   mode: "markers",
   type: "scatter",
+  showlegend: false,
   marker: {
     color: "rgba(240, 52, 52, 1)",
     line: {
@@ -25,7 +26,7 @@ var Green = {
   name: "Green Tiles",
   x: [9, 21, 21, 33, 33, 45],
   y: [21, 9, 33, 33, 9, 21],
-
+  showlegend: false,
   mode: "markers",
   type: "scatter",
   marker: {
@@ -144,8 +145,8 @@ var missLeft = {
 };
 //--------------------------------------------------------- Right
 var hitRight = {
-  x: [13, 28, 39, 37, 43, 33],
-  y: [17, 28, 25, 15, 21, 11],
+  x: [13, 28, 39, 37, 43, 33, 37, 41],
+  y: [17, 28, 25, 15, 21, 11, 27, 23],
   z: [1, 2, 3, 4],
   name: "Hit Right",
   mode: "markers",
@@ -163,8 +164,8 @@ var hitRight = {
 };
 
 var missRight = {
-  x: [5, 9, 17, 21, 17, 34, 15, 40, 30, 27, 22],
-  y: [11, 15, 23, 27, 23, 29, 20, 19, 15, 19, 22],
+  x: [5, 9, 17, 21, 17, 34, 15, 40, 30, 27, 22, 32],
+  y: [11, 15, 23, 27, 23, 29, 20, 19, 15, 19, 22, 13],
   z: [1, 2, 3, 4],
   name: "Miss Right",
   mode: "markers",
@@ -183,11 +184,32 @@ var missRight = {
 
 //------------------------------------------------------connected lines
 var rightMarkers = {
-  // x: [13, 28, 37],
-  // y: [17, 28, 26],
+  x: [5, 9, 13, 15, 17, 21, 28, 34, 37, 39, 41, 43, 40, 37, 33, 32, 30, 27, 22],
+  y: [
+    11,
+    15,
+    17,
+    20,
+    23,
+    27,
+    28,
+    29,
+    27,
+    25,
+    23,
+    21,
+    19,
+    15,
+    11,
+    13,
+    15,
+    19,
+    22,
+  ],
   mode: "lines",
   // mode: "markers",
   type: "scatter",
+  showlegend: false,
   marker: {
     color: "rgba(0, 0, 0, 1)",
     line: {
@@ -200,11 +222,54 @@ var rightMarkers = {
 };
 
 var leftMarkers = {
-  // x: [7, 9, 15, 19, 2, 33],
-  // y: [11, 15, 20, 24, 27, 29],
+  x: [
+    3,
+    5,
+    9,
+    13,
+    16,
+    21,
+    26,
+    31,
+    38,
+    41,
+    44,
+    47,
+    44,
+    41,
+    37,
+    33,
+    29,
+    27,
+    24,
+    20,
+  ],
+  y: [
+    14,
+    18,
+    21,
+    23,
+    27,
+    32,
+    33,
+    34,
+    33,
+    29,
+    26,
+    22,
+    17,
+    13,
+    11,
+    8,
+    11,
+    14,
+    18,
+    20,
+  ],
   mode: "lines",
   // mode: "markers",
   type: "scatter",
+  showlegend: false,
   marker: {
     color: "rgba(0, 0, 0, 1)",
     line: {
@@ -247,6 +312,8 @@ export default class PlotLyGraphic extends React.Component {
     hitLeft,
     missRight,
     missLeft,
+    rightMarkers,
+    leftMarkers,
     layout: {
       margin: {
         l: 35,
@@ -310,12 +377,20 @@ export default class PlotLyGraphic extends React.Component {
           buttons: [
             {
               //  args: ["colorscale", "Viridis"],
-              args: ["mode", "markers"],
+              ///args: ["mode", "markers"],
+              method: "restyle",
+              args: [
+                "visible",
+                [true, true, true, true, true, true, true, true],
+              ],
               label: "Lines",
               method: "restyle",
             },
             {
-              args: ["mode", "markers"],
+              args: [
+                "visible",
+                [true, true, true, true, true, true, false, false],
+              ],
               label: "None",
               method: "restyle",
             },
@@ -378,6 +453,8 @@ export default class PlotLyGraphic extends React.Component {
             this.state.missLeft,
             this.state.hitRight,
             this.state.hitLeft,
+            this.state.rightMarkers,
+            this.state.leftMarkers,
           ]}
           layout={this.state.layout}
           revision={this.state.revision}
