@@ -2,12 +2,25 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Title from "antd/lib/typography/Title";
-import { Layout, Menu, Icon, Breadcrumb, Button, Card, Dropdown } from "antd";
+import {
+  Layout,
+  Menu,
+  Icon,
+  Breadcrumb,
+  Button,
+  Card,
+  Dropdown,
+  Avatar,
+} from "antd";
 import SubMenu from "antd/lib/menu/SubMenu";
 import { Patient, HitsAvg, Detail, OtherData, OtherDetail } from "./Patient";
+
 import PatientDetails from "./PatientDetails";
 import Events from "./Events.jsx";
 import DiffButt from "./DiffButton.js";
+
+import logo from "./AbilityLabLogo.jpeg";
+
 //-------------------------------------------------------------------------------------------------------------
 const { Header, Footer, Sider, Content } = Layout;
 const answers = 610;
