@@ -17,7 +17,7 @@ var Red = {
       width: 0.85,
     },
     symbol: "square",
-    size: 57.5,
+    size: 67,
   },
 };
 
@@ -36,7 +36,7 @@ var Green = {
       width: 0.85,
     },
     symbol: "square",
-    size: 57.5,
+    size: 67,
   },
 };
 
@@ -317,7 +317,7 @@ export default class PlotLyGraphic extends React.Component {
     layout: {
       margin: {
         l: 1,
-        r: 195,
+        r: 160,
         t: 0,
         b: 110,
       },
@@ -326,33 +326,42 @@ export default class PlotLyGraphic extends React.Component {
       legend: {
         bordercolor: "#111",
         font: {
-          size: 15,
+          size: 15.5,
         },
         bgcolor: "#d3d3d1",
         title: "Poop",
         y: 0.83,
+        x: 1.05,
       },
+
       sliders: [
         {
-          pad: { t: 42, b: 0 },
+          y: 0.02,
+
+          len: 1.23,
+          font: {
+            size: 20,
+            color: "#00",
+          },
+          borderwidth: 2,
+          tickwidth: 1.5,
+
+          pad: { t: 13, b: 0, l: 0 },
           currentvalue: {
             xanchor: "right",
             prefix: "Step#: ",
             font: {
               color: "#00",
-              size: 17,
+              size: 24,
             },
           },
-
           steps: sliderSteps,
         },
-
-        {},
       ],
       updatemenus: [
         {
-          y: 0.28,
-          x: 1.23,
+          y: 0.47,
+          x: 1.24,
           buttons: [
             {
               method: "restyle",
@@ -361,12 +370,18 @@ export default class PlotLyGraphic extends React.Component {
             },
             {
               method: "restyle",
-              args: ["visible", [true, true, false, false, false, false]],
+              args: [
+                "visible",
+                [true, true, false, false, false, false, false, false],
+              ],
               label: "Step Group 2",
             },
             {
               method: "restyle",
-              args: ["visible", [true, true, false, false, false, false]],
+              args: [
+                "visible",
+                [true, true, false, false, false, false, false, false],
+              ],
               label: "Step Group 3",
             },
           ],
@@ -396,10 +411,11 @@ export default class PlotLyGraphic extends React.Component {
           ],
           direction: "left",
           bordercolor: "#000",
-          pad: { r: 422, t: 253, l: 450 },
+
           showactive: true,
           type: "buttons",
-          x: 0.235,
+          x: 1.05,
+          y: 0.57,
           xanchor: "left",
           //y: button_layer_1_height,
           yanchor: "top",
@@ -411,21 +427,22 @@ export default class PlotLyGraphic extends React.Component {
           },
         },
       ],
-      width: 755,
-      height: 527,
+      width: 790,
+      height: 590,
       align: "left",
       xaxis: {
         showticksuffix: false,
         showticklabels: false,
         range: [0, 54],
         ticklen: 1,
+        linewidth: 1.9,
         dtick: 6,
         dividerwidth: 50,
         dividercolor: "#111",
         tickcolor: "#000",
         gridcolor: "000",
         showgrid: true,
-        gridwidth: 1.2,
+        gridwidth: 1.7,
         autorange: false,
         fixedrange: true,
       },
@@ -434,16 +451,15 @@ export default class PlotLyGraphic extends React.Component {
         showticklabels: false,
         ticklen: 1,
         tickwidth: 1,
-        linewidth: 1,
+        linewidth: 1.6,
         dtick: 6,
         range: [0, 42],
-        gridwidth: 1.2,
+        gridwidth: 1.9,
         autorange: false,
         fixedrange: true,
         rangeslider: false,
         tickcolor: "#000",
         gridcolor: "000",
-        rangeslider: {},
       },
     },
     revision: 0,

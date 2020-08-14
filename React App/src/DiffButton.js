@@ -24,9 +24,9 @@ export default class button extends React.Component {
           bordered
           style={{
             width: 300,
-            height: 115,
+            height: 120,
             margin: 10,
-            marginTop: 10,
+            marginTop: 2,
             marginBottom: 0,
           }}
         >

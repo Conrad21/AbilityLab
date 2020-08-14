@@ -18,8 +18,7 @@ import { Patient, HitsAvg, Detail, OtherData, OtherDetail } from "./Patient";
 import PatientDetails from "./PatientDetails";
 import Events from "./Events.jsx";
 import DiffButt from "./DiffButton.js";
-
-import logo from "./AbilityLabLogo.jpeg";
+import ALicon from "./Iconcard.js";
 
 //-------------------------------------------------------------------------------------------------------------
 const { Header, Footer, Sider, Content } = Layout;
@@ -84,11 +83,11 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        <Header style={{ height: 40, padding: 3 }}>
+        <Header style={{ height: 15, padding: 0 }}>
           {/*<Avatar style={{ float: "right" }} src="./dp.png" /> */}
-          <Title style={{ color: "orange" }} level={2}>
+          {/* <Title style={{ color: "orange" }} level={}>
             Ability Lab
-          </Title>
+          </Title> */}
         </Header>
         <Layout>
           {/* //-------------------------------------------------------------------------------sidebar */}
@@ -140,8 +139,8 @@ function App() {
                   background: "	#d87a0f",
                   float: "center",
                   padding: 4,
-                  minHeight: 710,
-                  width: 1165,
+                  minHeight: 773,
+                  width: 1175,
                 }}
               >
                 {/* Patient info card */}
@@ -164,22 +163,34 @@ function App() {
                   <Card
                     bordered
                     style={{
-                      float: "right",
-                      margin: 10,
+                      float: "left",
+                      margin: 5,
                       marginTop: 10,
-                      marginLeft: 10,
+                      marginLeft: 5,
+                      width: 833,
+                      height: 625,
                     }}
                   >
                     <Events />
                   </Card>
                 </div>
+                <dic>
+                  {" "}
+                  <ALicon />
+                </dic>
                 {/*---------------------------Radio buttons */}
+
                 <DiffButt />
-                <div></div>
               </div>{" "}
             </Content>
-
-            <Footer style={{ textAlign: "center" }}>Ability Lab</Footer>
+            <PatientDetails
+              patient={selectedPatient}
+              visible={visible}
+              onClose={onClose}
+            />
+            <Footer style={{ textAlign: "center", background: "black" }}>
+              Ability Lab
+            </Footer>
           </Layout>
         </Layout>
       </Layout>
