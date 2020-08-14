@@ -17,7 +17,7 @@ var Red = {
       width: 0.85,
     },
     symbol: "square",
-    size: 41,
+    size: 57.5,
   },
 };
 
@@ -36,7 +36,7 @@ var Green = {
       width: 0.85,
     },
     symbol: "square",
-    size: 41,
+    size: 57.5,
   },
 };
 
@@ -316,26 +316,25 @@ export default class PlotLyGraphic extends React.Component {
     leftMarkers,
     layout: {
       margin: {
-        l: 35,
-        r: 30,
-        t: 3,
-        b: 0,
+        l: 1,
+        r: 195,
+        t: 0,
+        b: 110,
       },
+
       datarevision: 0,
       legend: {
-        pad: { t: 10, b: 1, r: 100 },
-
         bordercolor: "#111",
         font: {
-          size: 12,
+          size: 15,
         },
         bgcolor: "#d3d3d1",
         title: "Poop",
-        y: 0.5,
+        y: 0.83,
       },
       sliders: [
         {
-          pad: { t: 20, b: 1 },
+          pad: { t: 42, b: 0 },
           currentvalue: {
             xanchor: "right",
             prefix: "Step#: ",
@@ -353,7 +352,7 @@ export default class PlotLyGraphic extends React.Component {
       updatemenus: [
         {
           y: 0.28,
-          x: 1.33,
+          x: 1.23,
           buttons: [
             {
               method: "restyle",
@@ -396,21 +395,28 @@ export default class PlotLyGraphic extends React.Component {
             },
           ],
           direction: "left",
-          pad: { r: 222, t: 253, l: 332 },
+          bordercolor: "#000",
+          pad: { r: 422, t: 253, l: 450 },
           showactive: true,
           type: "buttons",
-          x: 0.15,
+          x: 0.235,
           xanchor: "left",
           //y: button_layer_1_height,
           yanchor: "top",
           active: 1,
           bgcolor: "#aaaaaa",
           bordercolor: "#FFFFFF",
+          font: {
+            size: 13.5,
+          },
         },
       ],
-      width: 545,
-      height: 400,
+      width: 755,
+      height: 527,
+      align: "left",
       xaxis: {
+        showticksuffix: false,
+        showticklabels: false,
         range: [0, 54],
         ticklen: 1,
         dtick: 6,
@@ -425,6 +431,7 @@ export default class PlotLyGraphic extends React.Component {
       },
       yaxis: {
         dividerwidth: 50,
+        showticklabels: false,
         ticklen: 1,
         tickwidth: 1,
         linewidth: 1,

@@ -1,39 +1,17 @@
 import React, { useState } from "react";
-//import logo from "./AbilityLabLogo.jpeg";
 import "bootstrap/dist/css/bootstrap.min.css";
-//import Card from "react-bootstrap/Card";
 import "./App.css";
-import {
-  Layout,
-  Avatar,
-  Menu,
-  Icon,
-  Breadcrumb,
-  Button,
-  Card,
-  Dropdown,
-} from "antd";
 import Title from "antd/lib/typography/Title";
+import { Layout, Menu, Icon, Breadcrumb, Button, Card, Dropdown } from "antd";
 import SubMenu from "antd/lib/menu/SubMenu";
-
 import { Patient, HitsAvg, Detail, OtherData, OtherDetail } from "./Patient";
-
-//import CareerDetails from "./CareerDetails";
-
 import PatientDetails from "./PatientDetails";
 import Events from "./Events.jsx";
-import logo from "./AbilityLabLogo.jpeg";
-
-var ZingChart = require("zingchart-react").core;
+import DiffButt from "./DiffButton.js";
+//-------------------------------------------------------------------------------------------------------------
 const { Header, Footer, Sider, Content } = Layout;
-
 const answers = 610;
-
-// const handleGameType {
-//   console.log("Game type ");
-
-// };
-
+var size1 = 605;
 const menu = (
   <Menu>
     <Menu.Item>
@@ -66,7 +44,7 @@ const menu = (
   </Menu>
 );
 
-var size1 = 605;
+//--------------------------------------------------------------------------------------------------
 
 function App() {
   const [selectedPatient, setSelectedPatient] = useState("");
@@ -93,13 +71,14 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        <Header style={{ padding: 10 }}>
+        <Header style={{ height: 40, padding: 3 }}>
           {/*<Avatar style={{ float: "right" }} src="./dp.png" /> */}
-          <Title style={{ color: "orange" }} level={3}>
+          <Title style={{ color: "orange" }} level={2}>
             Ability Lab
           </Title>
         </Header>
         <Layout>
+          {/* //-------------------------------------------------------------------------------sidebar */}
           <Sider>
             <Menu defaultSelectedKeys={["Dashboard"]} mode="inline">
               <Menu.Item key="Dashboard">Dashboard</Menu.Item>
@@ -138,20 +117,21 @@ function App() {
             </Menu>
           </Sider>
           <Layout>
-            <Content style={{ padding: "0 10px" }}>
-              <Breadcrumb style={{ margin: "10px 0", opacity: 0.1 }}>
+            {/* //-------------------------------------------------------------------------------center */}
+            <Content style={{ padding: "0 5px" }}>
+              <Breadcrumb style={{ margin: "5px 0", opacity: 0.1 }}>
                 {/*  <Breadcrumb.Item>Dashboard</Breadcrumb.Item>*/}
               </Breadcrumb>
               <div
                 style={{
                   background: "	#d87a0f",
                   float: "center",
-                  padding: 10,
+                  padding: 4,
                   minHeight: 710,
                   width: 1165,
                 }}
               >
-                {/* Patient info */}
+                {/* Patient info card */}
                 <Patient name="Name goes here" avatarSrc="./icon.png">
                   <HitsAvg hitsAvg=" .333">
                     <Detail hits="2" misses="4" />
@@ -166,62 +146,25 @@ function App() {
                   </OtherData>
                   <ViewProfileButton name="Name Goes Here" />
                 </Patient>
+                {/*--------------------------Chart buttons */}
                 <div>
                   <Card
                     bordered
                     style={{
-                      width: answers,
-                      height: 480,
-                      float: "left",
+                      float: "right",
                       margin: 10,
+                      marginTop: 10,
+                      marginLeft: 10,
                     }}
                   >
                     <Events />
                   </Card>
                 </div>
-                {/* radio buttons */}
+                {/*---------------------------Radio buttons */}
+                <DiffButt />
                 <div></div>
-                <Card
-                  bordered
-                  style={{ width: 330, height: 160, float: "left", margin: 10 }}
-                  title="Difficulty"
-                  bordered={true}
-                >
-                  <input type="radio" name="difficulty" value="easy" /> - Easy
-                  <div>
-                    <input type="radio" name="difficulty" value="medium " /> -
-                    Medium
-                    {/* <Button type="dashed" size={12}>
-                      Test Button
-                    </Button> */}
-                  </div>
-                  <div>
-                    <input type="radio" name="difficulty" value="hard " /> -
-                    Hard
-                  </div>
-                </Card>
-
-                <img
-                  src={logo}
-                  style={{
-                    width: 610,
-                    height: 160,
-                    //  float: "left",
-                    position: "absolute",
-                    right: 100,
-                    left: 572,
-                    bottom: 1,
-                    top: 582,
-                    margin: 12,
-                  }}
-                />
               </div>{" "}
             </Content>
-            <PatientDetails
-              patient={selectedPatient}
-              visible={visible}
-              onClose={onClose}
-            />
 
             <Footer style={{ textAlign: "center" }}>Ability Lab</Footer>
           </Layout>
