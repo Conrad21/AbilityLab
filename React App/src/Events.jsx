@@ -2,6 +2,58 @@ import React from "react";
 import Plot from "react-plotly.js";
 import { Steps } from "antd";
 
+//-------------------------------------------------------example
+window.feed1 = function (callback) {
+  fetch("/api/soccerPenalty/current/catch", {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      var tick = {};
+      if (result.catches.length > i) {
+        tick.plot0 = result.catches[i];
+        tick.plot1 = [0, 0, 0];
+      } else {
+        tick.plot0 = [0, 0, 0];
+      }
+
+      i++;
+      console.log(JSON.stringify(tick));
+      callback(JSON.stringify(tick));
+    });
+};
+
+window.feed2 = function (callback) {
+  fetch("/api/soccerPenalty/current/catch", {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      var tick = {};
+
+      if (result.goals.length > i) {
+        tick.plot1 = result.goals[i];
+        tick.plot0 = [0, 0, 0];
+      } else {
+        tick.plot1 = [0, 0, 0];
+      }
+
+      i++;
+      console.log(JSON.stringify(tick));
+      callback(JSON.stringify(tick));
+    });
+};
+
 //---10 blocks
 var Red = {
   name: "Red Tiles",
