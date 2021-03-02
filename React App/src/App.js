@@ -3,37 +3,20 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 //import Card from "react-bootstrap/Card";
 import "./App.css";
-import {
-  Layout,
-  Avatar,
-  Menu,
-  Icon,
-  Breadcrumb,
-  Button,
-  Card,
-  Dropdown,
-} from "antd";
+import { Layout, Avatar, Menu, Icon, Breadcrumb, Button, Card, Dropdown, } from "antd";
 import Title from "antd/lib/typography/Title";
 import SubMenu from "antd/lib/menu/SubMenu";
-
 import { Patient, HitsAvg, Detail, OtherData, OtherDetail } from "./Patient";
-
 //import CareerDetails from "./CareerDetails";
-
 import PatientDetails from "./PatientDetails";
 import Events from "./Events.jsx";
 import logo from "./AbilityLabLogo.jpeg";
+import MatrixModal from "./MatrixModal";
 
 var ZingChart = require("zingchart-react").core;
 const { Header, Footer, Sider, Content } = Layout;
 
-const answers = 610;
-
-// const handleGameType {
-//   console.log("Game type ");
-
-// };
-
+//components
 const menu = (
   <Menu>
     <Menu.Item>
@@ -90,6 +73,7 @@ function App() {
 
   const onClose = () => setVisible(false);
 
+
   return (
     <div className="App">
       <Layout>
@@ -108,9 +92,8 @@ function App() {
                   <span>
                     <Icon type="link" />
                     <span>Change Walk Type</span>
-                  </span>
-                }
-              >
+                  </span>}>
+
                 <Menu.ItemGroup key="Some Tabs" title="Walk type">
                   <Menu.Item key="Dashboard 1"> Walk1 </Menu.Item>
                   <Menu.Item key="Dashboard 2"> Walk2 </Menu.Item>
@@ -123,8 +106,8 @@ function App() {
                     <Icon type="mail" />
                     <span>Sessions</span>
                   </span>
-                }
-              >
+                }>
+
                 <Menu.ItemGroup key="Sessions">
                   <Menu.Item key="Dashboard 1">
                     <Dropdown overlay={menu}>
@@ -147,10 +130,32 @@ function App() {
                   background: "	#d87a0f",
                   float: "center",
                   padding: 10,
-                  minHeight: 710,
+                  minHeight: 730,
                   width: 1165,
                 }}
               >
+                      <Card
+                    bordered
+                    style={{
+                      width: 700,
+                      height: 515,
+                      float: "left",
+                      margin: 10,
+                    }}
+                  >
+                    <Events />
+                  </Card>
+
+
+                   <img  src={logo}
+                  style={{
+                    width: 700,  height: 159,
+                    //  float: "left",
+                    position: "absolute",
+                    right: 0, left: 218,  bottom: 1, top: 605,
+                    margin: 12,
+                  }}
+                />
                 {/* Patient info */}
                 <Patient name="Name goes here" avatarSrc="./icon.png">
                   <HitsAvg hitsAvg=" .333">
@@ -167,54 +172,15 @@ function App() {
                   <ViewProfileButton name="Name Goes Here" />
                 </Patient>
                 <div>
-                  <Card
-                    bordered
-                    style={{
-                      width: answers,
-                      height: 480,
-                      float: "left",
-                      margin: 10,
-                    }}
-                  >
-                    <Events />
-                  </Card>
-                </div>
-                {/* radio buttons */}
-                <div></div>
                 <Card
                   bordered
-                  style={{ width: 330, height: 160, float: "left", margin: 10 }}
-                  title="Difficulty"
+                  style={{ width: 330, height: 170, float: "left", margin: 10 }}
+                  title="Custom Layout"
                   bordered={true}
-                >
-                  <input type="radio" name="difficulty" value="easy" /> - Easy
-                  <div>
-                    <input type="radio" name="difficulty" value="medium " /> -
-                    Medium
-                    {/* <Button type="dashed" size={12}>
-                      Test Button
-                    </Button> */}
-                  </div>
-                  <div>
-                    <input type="radio" name="difficulty" value="hard " /> -
-                    Hard
-                  </div>
+                 >
+                <MatrixModal/>
                 </Card>
-
-                <img
-                  src={logo}
-                  style={{
-                    width: 610,
-                    height: 160,
-                    //  float: "left",
-                    position: "absolute",
-                    right: 100,
-                    left: 572,
-                    bottom: 1,
-                    top: 582,
-                    margin: 12,
-                  }}
-                />
+                </div>  
               </div>{" "}
             </Content>
             <PatientDetails

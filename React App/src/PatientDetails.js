@@ -15,6 +15,7 @@ const PatientDetails = ({ patient, visible, onClose }) => {
       title={patient}
       visible={visible}
       width={350}
+      height={350}
       onClose={onClose}
     >
       <Skeleton active loading={isLoading} paragraph={{ rows: 4 }}>

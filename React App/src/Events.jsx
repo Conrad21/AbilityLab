@@ -2,6 +2,10 @@ import React from "react";
 import Plot from "react-plotly.js";
 import { Steps } from "antd";
 
+var Lines = 1;
+var squareSize = 54;
+
+//temp DATA
 //---10 blocks
 var Red = {
   name: "Red Tiles",
@@ -17,7 +21,7 @@ var Red = {
       width: 0.85,
     },
     symbol: "square",
-    size: 41,
+    size: squareSize,
   },
 };
 
@@ -36,7 +40,7 @@ var Green = {
       width: 0.85,
     },
     symbol: "square",
-    size: 41,
+    size: squareSize,
   },
 };
 
@@ -185,27 +189,7 @@ var missRight = {
 //------------------------------------------------------connected lines
 var rightMarkers = {
   x: [5, 9, 13, 15, 17, 21, 28, 34, 37, 39, 41, 43, 40, 37, 33, 32, 30, 27, 22],
-  y: [
-    11,
-    15,
-    17,
-    20,
-    23,
-    27,
-    28,
-    29,
-    27,
-    25,
-    23,
-    21,
-    19,
-    15,
-    11,
-    13,
-    15,
-    19,
-    22,
-  ],
+  y: [11,15,17,20,23,27,28,29,27,25,23,21,19,15,11,13,15,19,22,],
   mode: "lines",
   // mode: "markers",
   type: "scatter",
@@ -222,50 +206,8 @@ var rightMarkers = {
 };
 
 var leftMarkers = {
-  x: [
-    3,
-    5,
-    9,
-    13,
-    16,
-    21,
-    26,
-    31,
-    38,
-    41,
-    44,
-    47,
-    44,
-    41,
-    37,
-    33,
-    29,
-    27,
-    24,
-    20,
-  ],
-  y: [
-    14,
-    18,
-    21,
-    23,
-    27,
-    32,
-    33,
-    34,
-    33,
-    29,
-    26,
-    22,
-    17,
-    13,
-    11,
-    8,
-    11,
-    14,
-    18,
-    20,
-  ],
+  x: [ 3,5, 9,13,16,21,26,31,38,41,44,47,44,41,37,33,29,27,24,20,],
+  y: [14,18,21,23,27,32,33,34,33,29,26,22,17,13,11,8,11,14,18,20,],
   mode: "lines",
   // mode: "markers",
   type: "scatter",
@@ -314,17 +256,12 @@ export default class PlotLyGraphic extends React.Component {
     missLeft,
     rightMarkers,
     leftMarkers,
+
     layout: {
-      margin: {
-        l: 35,
-        r: 30,
-        t: 3,
-        b: 0,
-      },
+      margin: {  l: 35, r: 30, t: 0, b: 0,},
       datarevision: 0,
       legend: {
-        pad: { t: 10, b: 1, r: 100 },
-
+        pad: { t: 10, b: 1, r: 10, l: 20},
         bordercolor: "#111",
         font: {
           size: 12,
@@ -333,9 +270,12 @@ export default class PlotLyGraphic extends React.Component {
         title: "Poop",
         y: 0.5,
       },
+
       sliders: [
         {
-          pad: { t: 20, b: 1 },
+          y: 0,
+          x: 0,
+          pad: { t: 0, b: 0 },
           currentvalue: {
             xanchor: "right",
             prefix: "Step#: ",
@@ -344,7 +284,6 @@ export default class PlotLyGraphic extends React.Component {
               size: 17,
             },
           },
-
           steps: sliderSteps,
         },
 
@@ -352,9 +291,15 @@ export default class PlotLyGraphic extends React.Component {
       ],
       updatemenus: [
         {
-          y: 0.28,
-          x: 1.33,
+          y: 0.30,
+          x: 1.22,
+          pad: { t: 0, b: 1, l: 34, },
           buttons: [
+            {
+              method: "restyle",
+              args: ["visible",  [true, true, false, false, false, false]],
+              label: "Step Group 0",
+            },
             {
               method: "restyle",
               args: ["visible", [true]],
@@ -362,12 +307,12 @@ export default class PlotLyGraphic extends React.Component {
             },
             {
               method: "restyle",
-              args: ["visible", [true, true, false, false, false, false]],
+              args: ["visible", [false, false, false, false, false, false]],
               label: "Step Group 2",
             },
             {
               method: "restyle",
-              args: ["visible", [true, true, false, false, false, false]],
+              args: ["invisible", [true, true, false, false, false, false]],
               label: "Step Group 3",
             },
           ],
@@ -395,11 +340,14 @@ export default class PlotLyGraphic extends React.Component {
               method: "restyle",
             },
           ],
+          
+          pad: { t: 0, b: 1, l: 9, },
           direction: "left",
-          pad: { r: 222, t: 253, l: 332 },
+          y: 0.1,
+          x: 1.0,
           showactive: true,
           type: "buttons",
-          x: 0.15,
+   
           xanchor: "left",
           //y: button_layer_1_height,
           yanchor: "top",
@@ -408,8 +356,8 @@ export default class PlotLyGraphic extends React.Component {
           bordercolor: "#FFFFFF",
         },
       ],
-      width: 545,
-      height: 400,
+      width: 660,
+      height: 470,
       xaxis: {
         range: [0, 54],
         ticklen: 1,
@@ -432,7 +380,7 @@ export default class PlotLyGraphic extends React.Component {
         range: [0, 42],
         gridwidth: 1.2,
         autorange: false,
-        fixedrange: true,
+        fixedrange: false,
         rangeslider: false,
         tickcolor: "#000",
         gridcolor: "000",
@@ -449,12 +397,12 @@ export default class PlotLyGraphic extends React.Component {
           data={[
             this.state.Green,
             this.state.Red,
-            this.state.missRight,
-            this.state.missLeft,
-            this.state.hitRight,
-            this.state.hitLeft,
-            this.state.rightMarkers,
-            this.state.leftMarkers,
+            // this.state.missRight,
+            // this.state.missLeft,
+            // this.state.hitRight,
+            // this.state.hitLeft,
+            // this.state.rightMarkers,
+            // this.state.leftMarkers,
           ]}
           layout={this.state.layout}
           revision={this.state.revision}
