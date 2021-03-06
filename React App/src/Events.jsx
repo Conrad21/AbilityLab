@@ -2,7 +2,7 @@ import React from "react";
 import Plot from "react-plotly.js";
 import { Steps } from "antd";
 
-var Lines = 1;
+
 var squareSize = 54;
 
 //temp DATA
@@ -44,7 +44,7 @@ var Green = {
   },
 };
 
-var Lines = 1;
+
 
 // var Grey = {
 //   //Green
