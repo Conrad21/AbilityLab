@@ -8,7 +8,7 @@ import { Patient, HitsAvg, Detail, OtherData, OtherDetail } from "./Patient";
 import PatientDetails from "./PatientDetails";
 import Events from "./Events.jsx";
 import logo from "./AbilityLabLogo.jpeg";
-import MatrixModal from "./MatrixModal";
+import MatrixModal from "./Board/MatrixModal";
 const { Header, Footer, Sider, Content } = Layout;
 
 //components
@@ -157,7 +157,6 @@ function App() {
               visible={visible}
               onClose={onClose}
             />
-
             <Footer style={{ textAlign: "center" }}>Ability Lab</Footer>
           </Layout>
         </Layout>
