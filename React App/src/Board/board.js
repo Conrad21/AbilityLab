@@ -7,18 +7,20 @@ class Board extends Component{
  constructor(props){
      super(props); 
      this.state= {
-         rows: this.createboard(props) 
+         rows: this.createboard(props), 
+   
      }
  }
 
     createboard = props => {
         let board = []; 
-        for(let i = 0; i < 9; i++){        //   X
+        console.log("hellllllllllllllll", props);
+        for(let i = 0; i < props.rows; i++){        //   X
             board.push([]); 
-            for(let j = 0; j < 10; j++){   //   Y 
+            for(let j = 0; j <  props.columns; j++){   //   Y 
                 board[i].push({
-                x: j,
-                y: i , 
+                x: j,                    //   X Value
+                y: i,                    //   Y Value
                 count: 0,  
                 iswhite: false, 
                 isred: false, 
@@ -34,12 +36,13 @@ class Board extends Component{
     };
 
     render(){
-        return (
-            <div>           
-
-            </div>
-        );
+        let rows = this.state.rows.map((row, index) => {
+            return (<Row
+            cells= {row}
+            key={index} />)
+        } )
+        return <div className= "board">{rows}</div>; 
     }
-}
+} 
 
 export default Board; 

@@ -6,13 +6,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.MatrixModal {
-  width: 400px;
-  height: 400px;
-  border: 1px solid black; 
-}  
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

@@ -4,7 +4,7 @@ import Meta from "antd/lib/card/Meta";
 import Title from "antd/lib/typography/Title";
 
 export const Patient = ({ name, avatarSrc, children }) => (
-  <Card bordered style={{ width: 330, height: 490, float: "left", margin: 10 }}>
+  <Card bordered style={{ width: 330, height: 490, float: "left", margin: 10, top:60 }}>
     <Meta avatar={<Avatar src={avatarSrc} />} title={name} />
     <br></br>
     {children}

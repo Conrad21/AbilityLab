@@ -3,10 +3,13 @@ import {
   } from "antd";
 import React from "react";
 import Board from "./Board";
+import './index.css';
+
 
 
 function onChange(value) {
   console.log(`selected ${value}`);
+
 }
 
 function onBlur() {
@@ -25,19 +28,27 @@ function onSearch(val) {
 const { Option } = Select;
 
 export default class MatrixModal extends React.Component {
-  state = {
-    rows:  5,
-    colums:  5 ,
-    flags: 5
-  }; 
+  constructor(props){
+    super(props); 
 
-
-
-  state = {
-    loading: false,
-    visible: false,
+     this.state = {
+       rows: 3,
+       columns: 20 ,
+       flags: 5,
+       loading: false,
+       visible: false
   };
- 
+  this.handleChange = this.handleChange.bind(this);  
+  }
+
+ handleChange(e) {
+  this.setState({rows: e});
+  console.log("the state", this.state.rows);
+  onChange(e); 
+  console.log(`selected ${e}`);
+  console.log("the state after onChange(e)", this.state.rows);
+}
+
   showModal = () => {
     this.setState({
       visible: true,
@@ -48,15 +59,13 @@ export default class MatrixModal extends React.Component {
     this.setState({ loading: true });
     setTimeout(() => {
       this.setState({ loading: false, visible: false });
-    }, 3000);
+    }, 10000);
   };
 
   handleCancel = () => {
     this.setState({ visible: false });
   };
 
-
-  
 
 
 
@@ -85,13 +94,12 @@ export default class MatrixModal extends React.Component {
 
            <Card> 
            <div className="matrixmodal">
-             <Board /> 
              <Select
                     showSearch
                     style={{ width: 150 }}
                     placeholder="Select a X"
                     optionFilterProp="children"
-                    onChange={onChange}
+                    onChange={this.handleChange}
                     onFocus={onFocus}
                     onBlur={onBlur}
                     onSearch={onSearch}
@@ -125,6 +133,14 @@ export default class MatrixModal extends React.Component {
                     <Option value="5">5</Option>
                     <Option value="6">6</Option>
             </Select>
+           </div>
+           <div>
+           <div className="board"> 
+           <Board  
+               rows={this.state.rows}
+               columns={this.state.columns}
+               /> 
+           </div>
            </div>
            </Card>
             </Card>
