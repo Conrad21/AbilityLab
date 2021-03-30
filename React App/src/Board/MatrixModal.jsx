@@ -71,13 +71,16 @@ export default class MatrixModal extends React.Component {
 
 //-----------  
   render() {
-    const { visible, loading } = this.state;
+    const { visible, loading, row} = this.state;
+    const rows = this.state.row;
+    const result = rows; 
     return (
       <>
         <Button type="primary" onClick={this.showModal}>
-          Create Custom Layout
+          Create Custom Layouts
         </Button>
         <Modal
+          width ={850}
           visible={visible}
           title="Custom Table"
           onOk={this.handleOk}
@@ -90,34 +93,13 @@ export default class MatrixModal extends React.Component {
               Confirm
             </Button>
           ]}>
-         <Card style={{ width: 460 }}>
-
-           <Card> 
+         <Card style={{ width: 800, }}>    
            <div className="matrixmodal">
-             <Select
-                    showSearch
-                    style={{ width: 150 }}
-                    placeholder="Select a X"
-                    optionFilterProp="children"
-                    onChange={this.handleChange}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onSearch={onSearch}
-                    filterOption={(input, option) =>
-                      option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                    } >
-                    <Option value="1">1</Option>
-                    <Option value="2">2</Option>
-                    <Option value="3">3</Option>
-                    <Option value="4">4</Option>
-                    <Option value="5">5</Option>
-                    <Option value="6">6</Option>
-            </Select>
-
+           <Card style={{ width: 200, height:90, float: "center", }}>
             <Select
                     showSearch
                     style={{ width: 150 }}
-                    placeholder="Select a Y"
+                    placeholder="Select a X"
                     optionFilterProp="children"
                     onChange={onChange}
                     onFocus={onFocus}
@@ -133,17 +115,44 @@ export default class MatrixModal extends React.Component {
                     <Option value="5">5</Option>
                     <Option value="6">6</Option>
             </Select>
-           </div>
-           <div>
-           <div className="board"> 
+            </Card>
+     
+         
+             <div className="board"> 
+           <Card style={{ width: 600, height:200, float: "right",}}>
            <Board  
                rows={this.state.rows}
                columns={this.state.columns}
                /> 
-           </div>
-           </div>
            </Card>
-            </Card>
+           </div>
+           <Card style={{ width: 150, height:200, float: "left",}}>
+           <Select
+                    showSearch
+                    style={{ width: 90, height: 150 }}
+                    placeholder="Select a Y"
+                    optionFilterProp="children"
+                    onChange={this.handleChange}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    onSearch={onSearch}
+                    filterOption={(input, option) =>
+                      option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                    } >
+                    <Option value="1">1</Option>
+                    <Option value="2">2</Option>
+                    <Option value="3">3</Option>
+                    <Option value="4">4</Option>
+                    <Option value="5">5</Option>
+                    <Option value="6">6</Option>
+             </Select>
+             </Card>
+           </div>
+   
+
+       
+           </Card>
+
         </Modal>
       </>
     );

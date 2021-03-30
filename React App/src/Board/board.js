@@ -22,9 +22,9 @@ class Board extends Component{
                 x: j,                    //   X Value
                 y: i,                    //   Y Value
                 count: 0,  
-                iswhite: false, 
-                isred: false, 
-                isgreen: false 
+                isOpen: true, 
+                isRed: false, 
+                isGreen: false 
             });
             }
            

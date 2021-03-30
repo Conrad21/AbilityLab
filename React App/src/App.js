@@ -119,12 +119,12 @@ function App() {
               </Breadcrumb>
               <div style={{ background: "#d87a0f", float: "center", padding: 10, minHeight: 730, width: 1165,}}>
                   <Card
-                    bordered style={{  width: 700, height: 515, float: "left", margin: 10, }}>
+                    bordered style={{  width: 785, height: 550, float: "left", }}>
                     <Events />
                   </Card>
 
-              <img src={logo}style={{ width: 700, height: 159, position: "absolute",
-               right: 0, left: 218,  bottom: 1, top: 605, margin: 12,}} />
+              <img src={logo}style={{ width: 785, height: 150, position: "absolute",
+               right: 0, left: 210 , top: 630, margin: 10,}} />
 
                 {/* Patient info */}
                 <Patient name="Name goes here" avatarSrc="./icon.png">
@@ -140,24 +140,28 @@ function App() {
                   </OtherData>
                   <ViewProfileButton name="Name Goes Here" />
                 </Patient>
+     
 
-                <div>
                 <Card
                   bordered
-                  style={{ width: 330, height: 170, float: "left", margin: 10 }}
+                  style={{ width: 341, height: 150, float: "right", margin: 6}}
                   title="Custom Layout"  bordered={true}
                  >
                 <MatrixModal/>
                 </Card>
-                </div>  
+
               </div>{" "}
             </Content>
+
             <PatientDetails
               patient={selectedPatient}
               visible={visible}
               onClose={onClose}
             />
-            <Footer style={{ textAlign: "center" }}>Ability Lab</Footer>
+
+              
+         
+            {/* <Footer style={{ textAlign: "center" }}>Ability Lab</Footer> */}
           </Layout>
         </Layout>
       </Layout>

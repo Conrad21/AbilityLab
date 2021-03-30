@@ -2,6 +2,7 @@ import React from "react";
  let root = document.documentElement;
 
 const Cell = props => {
+    
   let cell = () => {
     if (props.data.isOpen) {
       if (props.data.isRed) {

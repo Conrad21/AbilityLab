@@ -4,7 +4,7 @@ import Meta from "antd/lib/card/Meta";
 import Title from "antd/lib/typography/Title";
 
 export const Patient = ({ name, avatarSrc, children }) => (
-  <Card bordered style={{ width: 330, height: 490, float: "left", margin: 10, top:60 }}>
+  <Card bordered style={{ width: 340, height: 550, float: "left",  left: 15 }}>
     <Meta avatar={<Avatar src={avatarSrc} />} title={name} />
     <br></br>
     {children}
@@ -12,7 +12,7 @@ export const Patient = ({ name, avatarSrc, children }) => (
 );
 
 export const HitsAvg = ({ hitsAvg, children }) => (
-  <Card.Grid style={{ width: "100%" }}>
+  <Card.Grid style={{ width: "99%" }}>
     <Title level={4}> AVG Hit/Misses : {hitsAvg}</Title>
     {children}
   </Card.Grid>

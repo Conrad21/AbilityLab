@@ -3,7 +3,7 @@ import Plot from "react-plotly.js";
 import { Steps } from "antd";
 
 
-var squareSize = 54;
+var squareSize = 61;
 
 //temp DATA
 //---10 blocks
@@ -356,8 +356,8 @@ export default class PlotLyGraphic extends React.Component {
           bordercolor: "#FFFFFF",
         },
       ],
-      width: 660,
-      height: 470,
+      width: 730,
+      height: 515,
       xaxis: {
         range: [0, 54],
         ticklen: 1,
