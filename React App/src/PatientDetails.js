@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Drawer, Skeleton } from "antd";
 import useFetchData from "./service";
 
 const PatientDetails = ({ patient, visible, onClose }) => {
-  const [details, setDetails] = useState({});
-  const [isLoading, output] = useFetchData(
-    "./" + patient.replace(" ", "_") + ".json"
-  );
+  //const [details, setDetails] = useState({});
+   const [isLoading, output] = useFetchData(
+     "./" + patient.replace(" ", "_") + ".json"
+   );
   const { name, address, age, dob, phone, email } = output;
 
   return (
@@ -15,7 +15,6 @@ const PatientDetails = ({ patient, visible, onClose }) => {
       title={patient}
       visible={visible}
       width={350}
-      height={350}
       onClose={onClose}
     >
       <Skeleton active loading={isLoading} paragraph={{ rows: 4 }}>

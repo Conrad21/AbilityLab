@@ -32,7 +32,8 @@ export default class MatrixModal extends React.Component {
     super(props); 
      this.state = {
        rows: 3,
-       columns: 20,
+       columns: 20 ,
+       flag: 0,
        loading: false,
        loading: false,
        visible: false,
@@ -93,14 +94,13 @@ handleCol = (e) => {
     const rowNum = this.state.rows; 
     const colNum = this.state.columns; 
 
-
     return (
       <>
         <Button type="primary" onClick={this.showModal}>
           Create Custom Layouts
         </Button>
         <Modal
-          width ={875}
+          width ={850}
           visible={visible}
           title="Custom Table"
           onOk={this.handleOk}
@@ -114,15 +114,16 @@ handleCol = (e) => {
             // </Button>,
           ]}>
 
-         <Card > 
+         <Card style={{ width: 800, }}> 
            <div className="matrixmodal">
              <div className="board"> 
-               {/* <Card style={{ width: 600, height:200, float: "right",}}> */}
+               <Card style={{ width: 600, height:200, float: "right",}}>
                <Board rows={rowNum} columns={colNum}/>          
-                {/* </Card>     */}
-          </div>
+         </Card>
 
-           {/* <Card style={{ width: 190, height:200,}}>
+               
+          </div>
+           <Card style={{ width: 190, height:200,}}>
             <Select
                     showSearch
                     style={{ width: 100, height: 150 }}
@@ -142,9 +143,9 @@ handleCol = (e) => {
                     <Option value="5">5</Option>
                     <Option value="6">6</Option>
                </Select>
-            </Card> */}
-             {/* <Card style={{ width: 750, height:90, float: "center", }}> */}
-            {/* <Select
+            </Card>
+             <Card style={{ width: 750, height:90, float: "center", }}>
+            <Select
                     showSearch  style={{ width: 250, float: "middle",  }}
                     placeholder="Select a X"
                     optionFilterProp="children"
@@ -161,11 +162,13 @@ handleCol = (e) => {
                     <Option value="4">4</Option>
                     <Option value="5">5</Option>
                     <Option value="6">6</Option>
-            </Select> */}
+            </Select>
             {/* <Button style={{ width: 200, height:30, float: "right",}} onClick={this.handleNew}  type="primary"> Update Button 2</Button> */}
-            {/* </Card> */}
+            </Card>
            </div>
-
+           <div>
+                You have Selected, { rowNum }!
+           </div>
            </Card>
         </Modal>
       </>

@@ -1,9 +1,8 @@
 import React from "react";
 import Plot from "react-plotly.js";
-import { Steps } from "antd";
-
-
+//import { Steps } from "antd";
 var squareSize = 61;
+
 
 //temp DATA
 //---10 blocks
@@ -123,7 +122,7 @@ var hitLeft = {
       width: 2.5,
     },
     symbol: "x-open",
-    size: 12,
+
   },
 };
 
@@ -329,7 +328,7 @@ export default class PlotLyGraphic extends React.Component {
                 [true, true, true, true, true, true, true, true],
               ],
               label: "Lines",
-              method: "restyle",
+              
             },
             {
               args: [
@@ -384,7 +383,7 @@ export default class PlotLyGraphic extends React.Component {
         rangeslider: false,
         tickcolor: "#000",
         gridcolor: "000",
-        rangeslider: {},
+       // rangeslider: {},
       },
     },
     revision: 0,

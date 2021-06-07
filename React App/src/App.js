@@ -1,24 +1,21 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
 import { Layout, Menu, Icon, Breadcrumb, Button, Card, Dropdown, } from "antd";
 import Title from "antd/lib/typography/Title";
 import SubMenu from "antd/lib/menu/SubMenu";
-import { Patient, HitsAvg, Detail, OtherData, OtherDetail } from "./Patient";
-import PatientDetails from "./PatientDetails";
-import Events from "./Events.jsx";
+import { Patient, HitsAvg, Detail, OtherData, OtherDetail } from "./Compenents/Patient.js";
+import PatientDetails from './PatientDetails';
+import Events from "./Compenents/Events.jsx";
 import logo from "./AbilityLabLogo.jpeg";
 import MatrixModal from "./Board/MatrixModal";
-const { Header, Footer, Sider, Content } = Layout;
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 //components
+const { Header, Sider, Content } = Layout;
 const menu = (
   <Menu>
     <Menu.Item>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        // href="http://www.alipay.com/"
+      <a target="_blank"  rel="noopener noreferrer" // href="http://www.AbiltiyLab.com/"  
       >
         3/21/20, Session 1
       </a>
@@ -44,8 +41,7 @@ const menu = (
   </Menu>
 );
 
-var size1 = 605;
-
+//var size1 = 605;
 function App() {
   const [selectedPatient, setSelectedPatient] = useState("");
   const [visible, setVisible] = useState(false);
@@ -53,11 +49,11 @@ function App() {
     setSelectedPatient(name);
     setVisible(true);
   };
+
   const ViewProfileButton = ({ name }) => {
     return (
-      <Button
-        type="dashed"  style={{ float: "right" }}  onClick={() => onSelect(name)}
-      >
+      <Button 
+          type="dashed"  style={{ float: "right" }}  onClick={() => onSelect(name)} >
         {" "}
         View Full Profile {" "}
       </Button>
@@ -92,14 +88,11 @@ function App() {
                 </Menu.ItemGroup>
               </SubMenu>
 
-              <SubMenu
-                title={
+              <SubMenu title={
                   <span>
                     <Icon type="mail" />
                     <span>Sessions</span>
-                  </span>
-                }>
-
+                  </span> }>
                 <Menu.ItemGroup key="Sessions">
                   <Menu.Item key="Dashboard 1">
                     <Dropdown overlay={menu}>
@@ -115,52 +108,39 @@ function App() {
           <Layout>
             <Content style={{ padding: "0 10px" }}>
               <Breadcrumb style={{ margin: "10px 0", opacity: 0.1 }}>
-                {/*  <Breadcrumb.Item>Dashboard</Breadcrumb.Item>*/}
-              </Breadcrumb>
-              <div style={{ background: "#d87a0f", float: "center", padding: 10, minHeight: 730, width: 1165,}}>
-                  <Card
+                </Breadcrumb>
+                  <div style={{ background: "#d87a0f", float: "center", 
+                  padding: 10, minHeight: 730, width: 1165,}}>
+                <Card
                     bordered style={{  width: 785, height: 550, float: "left", }}>
-                    <Events />
-                  </Card>
+                <Events />
+                </Card>
 
-              <img src={logo}style={{ width: 785, height: 150, position: "absolute",
+               <img src={logo} alt="this is an thingy :3" style={{ width: 785, height: 150, position: "absolute",
                right: 0, left: 210 , top: 630, margin: 10,}} />
-
                 {/* Patient info */}
                 <Patient name="Name goes here" avatarSrc="./icon.png">
                   <HitsAvg hitsAvg=" .333">
                     <Detail hits="2" misses="4" />
-                    <br></br>
+                  <br></br>
+            
                   </HitsAvg>
                   <OtherData Otherdata>
-                    <OtherDetail
-                      Walking Distance=" 3 meters"
-                      other="Other data"
-                    />
+                    <OtherDetail  Walking Distance=" 3 meters"  other="Other data"/>
                   </OtherData>
                   <ViewProfileButton name="Name Goes Here" />
                 </Patient>
-     
 
                 <Card
-                  bordered
-                  style={{ width: 341, height: 150, float: "right", margin: 6}}
-                  title="Custom Layout"  bordered={true}
-                 >
+                  bordered style={{ width: 341, height: 150, float: "right", margin: 6}}
+                  title="Custom Layout"  >
                 <MatrixModal/>
                 </Card>
 
               </div>{" "}
-            </Content>
-
-            <PatientDetails
-              patient={selectedPatient}
-              visible={visible}
-              onClose={onClose}
-            />
-
-              
-         
+             </Content>
+              <PatientDetails
+                patient={selectedPatient}  visible={visible}  onClose={onClose} />         
             {/* <Footer style={{ textAlign: "center" }}>Ability Lab</Footer> */}
           </Layout>
         </Layout>
