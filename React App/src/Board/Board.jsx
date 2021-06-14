@@ -20,11 +20,13 @@ const { Option } = Select;
 export default class Board extends React.Component{
     constructor(props){
         super(props);
+        console.log ("heres the props for board.jsx"); 
         console.log (props); 
         this.state = {
           row: props.rows,
           columns: props.columns} 
           console.log (this.state); 
+
 
    // this.state={board: this.createboard(props)}
      const boards = this.createboard(props);
@@ -49,19 +51,28 @@ export default class Board extends React.Component{
   }; 
 
  handleRow = (e) => {
+  console.log(`poop ${e}`);
+  const col = this.state; 
+  console.log(col);
+  console.log(col.props.columns);
     //const{value}= e.taget;
     var row = e; 
-    const helper = {rows: row, columns: 20};
+    const helper = {rows: row, columns: col.props.columns};
     this.setState({props: helper});
     console.log(`selected ${e}`);
     console.log("the col state after onChange(ssssse1)", this.state.props);
   }; 
   
   
-  handleCol = (e) => {
+  handleCol = (e) => {  console.log(e);
     //this.setState({row: (e)});
+    console.log(`poop ${e}`);
+    console.log(this.props);
+    const row = this.state; 
+    console.log(row);
+    console.log(row.props.rows);
     var columnss = e; 
-    const helper = {rows: 3, columns: columnss};
+    const helper = {rows: row.props.rows, columns: columnss};
     this.setState({props: helper});
     console.log("the col state", this.state.row);
     console.log(`selected ${e}`);
@@ -93,6 +104,7 @@ export default class Board extends React.Component{
   
 
     createboard = (props) => {
+
         const board = []; 
      //   console.log("board created!", props);
         for(let i = 0; i < props.rows; i++){        //   X
@@ -104,7 +116,8 @@ export default class Board extends React.Component{
                 count: 0,  
                 isOpen: true, 
                 isRed: false, 
-                isGreen: false 
+                isGreen: false, 
+                colSize: props.rows
                 });
             }
         }
@@ -118,7 +131,7 @@ export default class Board extends React.Component{
     }; 
 
     handleCancel = () => {
-    //    console.log("vgggggggggggggggg")
+       console.log("vgggggggggggggggg")
         
         let boards = this.createboard(this.state.props); 
         console.table( this.state.props); 
@@ -214,7 +227,9 @@ export default class Board extends React.Component{
                     <Option value="20">20</Option>
             </Select>
             {/* <Button style={{ width: 200, height:30, float: "right",}} onClick={this.handleNew}  type="primary"> Update Button 2</Button> */}
-            <Button style={{ width: 200, height:30, float: "right", margin: 15,}}  onClick={this.handleCancel} type="primary">Create Board</Button>
+            <div className= "CButton" >
+            <Button style={{ width: 200, height:30, float: "right", margin: 15,}} onClick={this.handleCancel} type="primary">Create Board</Button>
+            </div>
             </Card>
         {/* <Button style={{ width: 200, height:30, float: "left",}}  onClick={this.handleCancels} type="primary"> Default Button</Button> */}
         </div>

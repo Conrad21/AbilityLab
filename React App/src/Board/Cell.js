@@ -11,14 +11,36 @@ import React from "react";
 
 const Cell = props => {
   const cell = () => {
-    if ((props.data.isOpen) ) {
-      return (
-        <div 
-        className="cell open" 
-        onClick={console.log("OOOEEEEEEEEEEEEEE")} > 
-        </div> 
+    if ((props.data.isOpen)) {
+      if((props.data.colSize) < 11){
+        return (
+         <div 
+           className="cell open1" 
+           onClick={console.log("hi")} > 
+          </div> 
       )
-    }
+        }
+
+        if((props.data.colSize) < 16){
+          return (
+           <div 
+             className="cell open1" 
+             onClick={console.log("hi")} > 
+            </div> 
+        )
+          }
+
+        else{
+          return (
+           <div 
+             className="cell open3" 
+             onClick={console.log(props.data)} > 
+            </div> 
+        )
+          }
+  }
+
+  
       else{ 
       return( <div 
         className = "cell" 

@@ -13,26 +13,41 @@ body {
     border: 1px solid black; 
   }  
 
-  
+   .CButton2{
+    background-color: #db7d25bd;
+    height: 25px; 
+   }
+   
     .board .row {
       display: flex;
-      height: 25px; 
+
       justify-content: center;
     }
-      .board .row:last-child {
-        /* border-bottom: none; */
-        height: 25px; }
+     /* .board .row:last-child {
+        /* border-bottom: none; 
+        height: 25px;} */
+
       .board .row .cell {
         border-right: 1px solid rgba(0, 0, 0, 0.847);
         border-left: 1px solid rgba(68, 68, 68, 0.788);
-        width: 25px;
+
         display: flex;
         justify-content: center;
         align-items: center;
         border-top: 1px solid rgba(12, 12, 12, 0.971); 
         border-bottom: 1px solid rgb(12, 12, 12); }
-          .board .row .cell.open {
-              background-color: #d4d4d411; }
+
+          .board .row .cell.open1 {
+            width: 25px;
+            height: 25px; 
+            background-color: #d4d4d411;   }
+              
+                    
+          .board .row .cell.open2 {
+            width: 10px;
+            height: 10px; 
+            background-color: #d4d4d411;   }
+
           .board .row .cell.close {
               background-color: #d4d4d411; }
           .board .row .cell.open:hover {
