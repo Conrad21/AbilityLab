@@ -65,9 +65,9 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        <Header style={{ padding: 10 }}>
+        <Header style={{ padding: 1}}>
           {/*<Avatar style={{ float: "right" }} src="./dp.png" /> */}
-          <Title style={{ color: "orange" }} level={3}>
+          <Title style={{ color: "orange", height: 100 }} level={3}>
             Ability Lab
           </Title>
         </Header>

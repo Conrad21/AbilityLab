@@ -61,6 +61,14 @@ export default class Board extends React.Component{
     this.setState({props: helper});
     console.log(`selected ${e}`);
     console.log("the col state after onChange(ssssse1)", this.state.props);
+    let boards = this.createboard(helper); 
+    console.table( this.state.props); 
+    const maprow = boards.map((row, index) => {
+        return (<Row
+        cells= {row}
+        key={index} />)
+    });   
+    this.setState({rows: maprow});
   }; 
   
   
@@ -77,6 +85,14 @@ export default class Board extends React.Component{
     console.log("the col state", this.state.row);
     console.log(`selected ${e}`);
     console.log("the col state after onChange(ssssse2)", this.state.props);
+    let boards = this.createboard(helper); 
+    console.table( this.state.props); 
+    const maprow = boards.map((row, index) => {
+        return (<Row
+        cells= {row}
+        key={index} />)
+    });   
+    this.setState({rows: maprow});
   }; 
   
   
@@ -156,7 +172,7 @@ export default class Board extends React.Component{
     render(){
         const rows = this.state.rows; 
         return <div className= "board">
-           <Card style={{ width: 801, height:350,  margin: 10  }}>
+           <Card>
            <Select
                     showSearch
                     style={{ width: 100, margin: 10 }}
@@ -193,9 +209,10 @@ export default class Board extends React.Component{
                  {rows}
             </Card>
            
-            <Card style={{ width: 760, height:90, float: "center", }}>
+            <Card style={{ width: 760, height:90, float: "center", margin: 40 }}>
             <Select
-                    showSearch  style={{ width: 250, float: "middle",  }}
+               
+                    style={{ width: 250,  }}
                     placeholder="Select a X"
                     optionFilterProp="children"
                     onChange={this.handleCol}
@@ -227,9 +244,9 @@ export default class Board extends React.Component{
                     <Option value="20">20</Option>
             </Select>
             {/* <Button style={{ width: 200, height:30, float: "right",}} onClick={this.handleNew}  type="primary"> Update Button 2</Button> */}
-            <div className= "CButton" >
-            <Button style={{ width: 200, height:30, float: "right", margin: 15,}} onClick={this.handleCancel} type="primary">Create Board</Button>
-            </div>
+
+            <Button style={{ width: 200, height:30, float: "right", margin: 15, background: 'orange', color: "black" }} onClick={this.handleCancel} type="primary">Create Board</Button>
+
             </Card>
         {/* <Button style={{ width: 200, height:30, float: "left",}}  onClick={this.handleCancels} type="primary"> Default Button</Button> */}
         </div>

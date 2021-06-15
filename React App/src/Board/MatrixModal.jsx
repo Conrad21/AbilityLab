@@ -37,6 +37,7 @@ export default class MatrixModal extends React.Component {
        loading: false,
        visible: false,
        openCells: 0, 
+       
   };
   }
 
@@ -114,7 +115,7 @@ handleCol = (e) => {
             // </Button>,
           ]}>
 
-         <Card > 
+         <Card  > 
            <div className="matrixmodal">
              <div className="board"> 
                {/* <Card style={{ width: 600, height:200, float: "right",}}> */}

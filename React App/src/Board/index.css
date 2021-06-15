@@ -8,8 +8,8 @@ body {
   }
   
   .MatrixModal {
-    width: 350px;
-    height: 350px;
+    width: 400px;
+    height: 400px;
     border: 1px solid black; 
   }  
 
@@ -20,8 +20,8 @@ body {
    
     .board .row {
       display: flex;
-
       justify-content: center;
+      
     }
      /* .board .row:last-child {
         /* border-bottom: none; 
@@ -41,11 +41,17 @@ body {
             width: 25px;
             height: 25px; 
             background-color: #d4d4d411;   }
-              
-                    
+           
           .board .row .cell.open2 {
-            width: 10px;
-            height: 10px; 
+            width: 20px;
+            height: 20px; 
+            background-color: #d4d4d411;   }
+              
+                  
+                    
+          .board .row .cell.open3 {
+            width: 20px;
+            height: 20px; 
             background-color: #d4d4d411;   }
 
           .board .row .cell.close {
