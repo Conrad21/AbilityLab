@@ -20,8 +20,10 @@ class Cell extends React.Component {
 
   handleClick() {
     console.log("itworked"); 
-    console.log(this.state.props.data);      
-    this.setState({isGreen: true});
+    console.log(this.state.props.data);  
+    const helper = this.state.props;
+    this.setState({prop: helper});    
+
     console.log(this.state);
   }
 
@@ -50,7 +52,7 @@ class Cell extends React.Component {
             return (
              <div 
                className="cell open3" 
-               onClick={console.log(this.state.props.data)} > 
+               onClick={console.log("hi")} > 
               </div> 
           )
             }

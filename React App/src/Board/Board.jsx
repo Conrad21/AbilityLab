@@ -160,15 +160,12 @@ export default class Board extends React.Component{
       };
 
 
-    open = cell => {
-        let rows = this.state.rows; 
-        let current = rows[cell.y][cell.x];
-        console.log("cellllllllllllllll");
-        let newRows = this.createboard(this.props); 
 
-     }; 
     
-    
+     btnTapped() {
+      console.log('tapped');
+    }
+
     render(){
         const rows = this.state.rows; 
         return <div className= "board">
@@ -245,8 +242,7 @@ export default class Board extends React.Component{
             </Select>
             {/* <Button style={{ width: 200, height:30, float: "right",}} onClick={this.handleNew}  type="primary"> Update Button 2</Button> */}
 
-            <Button style={{ width: 200, height:30, float: "right", margin: 15, background: 'orange', color: "black" }} onClick={this.handleCancel} type="primary">Create Board</Button>
-
+           
             </Card>
         {/* <Button style={{ width: 200, height:30, float: "left",}}  onClick={this.handleCancels} type="primary"> Default Button</Button> */}
         </div>
