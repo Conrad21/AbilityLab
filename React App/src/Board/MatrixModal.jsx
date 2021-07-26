@@ -94,7 +94,8 @@ handleCol = (e) => {
 
     return (
       <>
-        <Button type="primary" onClick={this.showModal}>
+        <Button type="primary" style={{ background: 'orange', color: "black"}}
+         onClick={this.showModal}>
           Create Custom Layouts
         </Button>
         <Modal  width ={875}   visible={visible}   title="Custom Table"  onOk={this.handleOk}  onCancel={this.handleCancel}

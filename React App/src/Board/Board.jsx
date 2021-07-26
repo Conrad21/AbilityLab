@@ -169,10 +169,11 @@ export default class Board extends React.Component{
     render(){
         const rows = this.state.rows; 
         return <div className= "board">
-           <Card>
+           <Card >
            <Select
+           
                     showSearch
-                    style={{ width: 100, margin: 10 }}
+                    style={{ width: 100, margin: 10, color:"black", bordered: true, size: "large"}}
                     placeholder="Select Y"
                     optionFilterProp="children"
                     onChange={this.handleRow}

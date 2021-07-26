@@ -45,6 +45,7 @@ const menu = (
 function App() {
   const [selectedPatient, setSelectedPatient] = useState("");
   const [visible, setVisible] = useState(false);
+  
   const onSelect = (name) => {
     setSelectedPatient(name);
     setVisible(true);
